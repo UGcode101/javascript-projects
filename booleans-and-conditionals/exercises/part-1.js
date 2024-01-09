@@ -63,10 +63,4 @@ if (
   commandOveride === true
 ) {
   console.log("Cleared to launch!");
-} else if (
-  fuelLevel < 20000 &&
-  engineIndicatorLight === "red blinking" &&
-  commandOveride === False
-) {
-  console.log("Launch Scrubbed!");
-}
+} else console.log("Launch Scrubbed!");
