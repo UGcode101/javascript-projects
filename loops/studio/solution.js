@@ -22,10 +22,6 @@ let desserts = [
   "kiwi",
 ];
 
-function mealAssembly(protein, grains, veggies, beverages, desserts, numMeals) {
-  let pantry = [protein, grains, veggies, beverages, desserts];
-  let meals = [];
-}
 /// Part A #2: Write a ``for`` loop inside this function
 /// Code your solution for part A #2 below this comment (and above the return statement) ... ///
 
