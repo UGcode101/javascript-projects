@@ -26,41 +26,41 @@ for (let i = 50; i >= 20; i--) {
   }
 }
 
-/*Exercise #2: 
-Initialize two variables to hold the string “LaunchCode” and the array [1, 5, ‘LC101’, ‘blue’, 42].
+//Exercise #2:
+//Initialize two variables to hold the string “LaunchCode” and the array [1, 5, ‘LC101’, ‘blue’, 42].
 
 let stringVariable = "LaunchCode";
-let arrayVariable = [1, 5, 'LC101', 'blue', 42];
+let arrayVariable = [1, 5, "LC101", "blue", 42];
 
-Construct ``for`` loops to accomplish the following tasks:
-  a. Print each element of the array to a new line.
+//Construct ``for`` loops to accomplish the following tasks:
+//a. Print each element of the array to a new line.
 
-  for (let i = 0; i < arrayVariable.length; i++) {
-    console.log(arrayVariable[i]);
+for (let i = 0; i < arrayVariable.length; i++) {
+  console.log(arrayVariable[i]);
 }
 
-  b. Print each character of the string - in reverse order - to a new line. */
+//b. Print each character of the string - in reverse order - to a new line. */
 
 for (let i = stringVariable.length - 1; i >= 0; i--) {
   console.log(stringVariable[i]);
 }
 
-/*Exercise #3:Construct a for loop that sorts the array [2, 3, 13, 18, -5, 38, -10, 11, 0, 104] into two new arrays:
-  a. One array contains the even numbers, and the other holds the odds.
+//Exercise #3:Construct a for loop that sorts the array [2, 3, 13, 18, -5, 38, -10, 11, 0, 104] into two new arrays:
+//a. One array contains the even numbers, and the other holds the odds.
 
-  let originalArray = [2, 3, 13, 18, -5, 38, -10, 11, 0, 104];
+let originalArray = [2, 3, 13, 18, -5, 38, -10, 11, 0, 104];
 let evenArray = [];
 let oddArray = [];
 
 for (let i = 0; i < originalArray.length; i++) {
-    if (originalArray[i] % 2 === 0) {
-        evenArray.push(originalArray[i]);
-    } else {
-        oddArray.push(originalArray[i]);
-    }
+  if (originalArray[i] % 2 === 0) {
+    evenArray.push(originalArray[i]);
+  } else {
+    oddArray.push(originalArray[i]);
+  }
 }
 
-  b. Print the arrays to confirm the results. */
+//b. Print the arrays to confirm the results.
 
 console.log("Even Numbers Array:", evenArray);
 console.log("Odd Numbers Array:", oddArray);
