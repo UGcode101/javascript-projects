@@ -2,8 +2,14 @@ let str = "In space, no one can hear you code.";
 let arr = ["B", "n", "n", 5];
 
 //1) Use the split method on the string to identify the purpose of the parameter inside the ().
+let splitResult0 = str.split();
 let splitResult = str.split(" ");
+let splitResult1 = str.split("e");
+let splitResult2 = str.split("");
+console.log("Split Result0:", splitResult);
 console.log("Split Result:", splitResult);
+console.log("Split Result1:", splitResult);
+console.log("Split Result2:", splitResult);
 
 //2) Use the join method on the array to identify the purpose of the parameter inside the ().
 let joinResult = arr.join("-");
@@ -17,5 +23,5 @@ console.log("Join Result:", joinResult);
 let cargoHold = "water,space suits,food,plasma sword,batteries";
 let cargoArray = cargoHold.split(",");
 cargoArray.sort();
-let newCargoHold = cargoArray.join(",");
+let newCargoHold = cargoArray.join(", ");
 console.log("Alphabetized cargoHold:", newCargoHold);
