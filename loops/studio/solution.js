@@ -29,18 +29,21 @@ function mealAssembly(protein, grains, veggies, beverages, desserts, numMeals) {
   let pantry = [protein, grains, veggies, beverages, desserts];
   let meals = [];
 
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
   for (let i = 0; i < numMeals; i++) {
     let meal = [];
     for (let j = 0; j < pantry.length; j++) {
-      let category = pantry[j];
-      let randomItem = category[Math.floor(Math.random() * category.length)];
-      meal.push(randomItem);
+      meal.push(pantry[j][i % pantry[j].length]);
     }
     meals.push(meal);
   }
   return meals;
 }
-
 function askForNumber() {
   numMeals = input.question("How many meals would you like to make?");
 
