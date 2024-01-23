@@ -57,28 +57,22 @@ function askForNumber() {
   return numMeals;
 }
 
+/// Code your Bonus Mission Solution here ///
+
 function generatePassword(string1, string2) {
   let code = "";
 
-  /// Code your Bonus Mission Solution here ///
+  // Determine the length of the longer string
+  let maxLength = Math.max(string1.length, string2.length);
 
-  function generatePassword(string1, string2) {
-    let code = "";
-
-    // Determine the length of the longer string
-    let maxLength = Math.max(string1.length, string2.length);
-
-    // Iterate through both strings alternately
-    for (let i = 0; i < maxLength; i++) {
-      if (i < string1.length) {
-        code += string1[i];
-      }
-      if (i < string2.length) {
-        code += string2[i];
-      }
+  // Iterate through both strings alternately
+  for (let i = 0; i < maxLength; i++) {
+    if (i < string1.length) {
+      code += string1[i];
     }
-
-    return code;
+    if (i < string2.length) {
+      code += string2[i];
+    }
   }
 
   return code;
