@@ -24,13 +24,18 @@ console.log("Symbol for element26:", table[2][1]);
 //5) 'table' is an example of a 2-dimensional array. The first “level” contains the element arrays, and the second level holds the name/symbol/mass values. Experiment! Create a 3-dimensional array and print out one entry from each level in the array.
 let threeDimensionalArray = [
   [
-    ["hydrogen", "H", 1.008],
-    ["helium", "He", 4.003],
-    ["iron", "Fe", 55.85],
+    [
+      ["hydrogen", "H", 1.008],
+      ["helium", "He", 4.003],
+    ],
+    [
+      ["iron", "Fe", 55.85],
+      ["oxygen", "O", 16.0],
+    ],
   ],
 ];
 
 // Print out one entry from each level
-console.log("Entry from the first level:", threeDimensionalArray[0]);
-console.log("Entry from the second level:", threeDimensionalArray[1][0]);
-console.log("Entry from the third level:", threeDimensionalArray[0][1]);
+console.log("Entry from the first level:", threeDimensionalArray[0][0][1]);
+console.log("Entry from the second level:", threeDimensionalArray[0][1][0]);
+console.log("Entry from the third level:", threeDimensionalArray[0][1][1]);
