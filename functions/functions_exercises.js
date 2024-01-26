@@ -55,11 +55,15 @@ function makeIsoscelesTriangle(height) {
   }
   return triangle.slice(0, -1);
 }
+
 //example 7 makeDiamond(height)
 function makeDiamond(height) {
-  let diamond = makeIsoscelesTriangle(height);
+  let diamond = makeIsoscelesTriangle(height) + "\n";
   for (let i = height - 2; i >= 0; i--) {
-    diamond += makeSpaceLine(height - i - 1, 2 * i + 1) + "\n";
+    diamond += makeSpaceLine(height - i - 1, 2 * i + 1);
+    if (i > 0) {
+      diamond += "\n";
+    }
   }
   return diamond;
 }
