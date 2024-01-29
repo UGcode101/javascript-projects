@@ -41,7 +41,7 @@ console.log("Hold status: " + holdStatus(cargoHold));
 //c). Once you figure out how much fuel to pump out, return that value.
 
 //d). Decide where to best place your function call to gather our new fuel.
-let nonSuspiciousFunction = function (a) {
+let stealFuel = function (a) {
   if (checkFuel(a) === "green") {
     return a - 100001;
   } else if (checkFuel(a) === "yellow") {
@@ -51,7 +51,7 @@ let nonSuspiciousFunction = function (a) {
   }
 };
 
-fuelLevel = nonSuspiciousFunction(fuelLevel);
+fuelLevel = stealFuel(fuelLevel);
 //placed above at line 23
 
 // Next, liberate some of that glorious cargo.
@@ -92,8 +92,8 @@ console.log("Cargo hold after theft:", cargoHold);
 
 //c). Use a template literal to return, "Raided _____ kg of fuel from the tanks, and stole ____ and ____ from the cargo hold."
 
-let irs = function (fuelLevel, cargoHold) {
-  let stealFuel = function (level) {
+function irs(fuelLevel, cargoHold) {
+  function stealFuel(level) {
     if (checkFuel(level) === "green") {
       return level - 100001;
     } else if (checkFuel(level) === "yellow") {
@@ -101,16 +101,15 @@ let irs = function (fuelLevel, cargoHold) {
     } else {
       return level;
     }
-  };
-};
-let stolenFuel = stealFuel(fuelLevel);
+  }
+}
+let originalFuelLevel = fuelLevel;
+fuelLevel = stealFuel(fuelLevel);
+let stolenFuel = originalFuelLevel - fuelLevel;
+
 let stolenCargo = stealFromCargoHold(cargoHold);
 
-let receipt = `Raided ${
-  fuelLevel - stolenFuel
-} kg of fuel from the tanks, and stole ${stolenCargo[0]} and ${
-  stolenCargo[1]
-} from the cargo hold.`;
+let receipt = `Raided ${stolenFuel} kg of fuel from the tanks, and stole ${stolenCargo[0]} and ${stolenCargo[1]} from the cargo hold.`;
 
 return receipt;
 
