@@ -1,8 +1,7 @@
 function hello(name) {
-   if (name === undefined)
-       name = "World";
+  if (name === undefined) name = "World";
 
-   return "Hello, " + name + "!";
+  return "Hello, " + name + "!";
 }
 
 module.exports = hello;
