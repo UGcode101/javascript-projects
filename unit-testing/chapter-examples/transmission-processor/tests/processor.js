@@ -1,16 +1,43 @@
 function processor(transmission) {
-  if (transmission.indexOf("::") < 0) {
-    // Data is invalid
+  transmission = transmission.trim();
+
+  if (
+    transmission.indexOf("::") < 0 ||
+    transmission.split("::").length - 1 !== 1
+  ) {
     return -1;
   }
+
   let parts = transmission.split("::");
-  let rawData = parts[1];
-  if (rawData[0] !== "<") {
-    rawData = -1;
+  const idPart = parts[0];
+  let rawDataPart = parts[1];
+
+  const id = Number(idPart);
+  if (isNaN(id)) {
+    return -1;
   }
+
+  if (rawDataPart[0] !== "<" || rawDataPart[rawDataPart.length - 1] !== ">") {
+    return { id, rawData: -1 };
+  }
+
+  rawDataPart = rawDataPart.substring(1, rawDataPart.length - 1);
+
+  let isValid = true;
+
+  rawDataPart.split("").forEach((char) => {
+    if (isNaN(char) || char.trim() === "") {
+      isValid = false;
+    }
+  });
+
+  if (!isValid) {
+    return { id, rawData: -1 };
+  }
+
   return {
-    id: Number(parts[0]),
-    rawData: rawData,
+    id,
+    rawData: rawDataPart,
   };
 }
 

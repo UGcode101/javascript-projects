@@ -31,3 +31,25 @@ describe("transmission processor", function () {
     expect(result.rawData).toBe(-1);
   });
 });
+
+describe("transmission processor additional tests for rawData format", function () {
+  test("returns -1 for rawData if missing < at the beginning - case 1", function () {
+    let result = processor("9701::8729740349572>0912");
+    expect(result.rawData).toBe(-1);
+  });
+
+  test("returns -1 for rawData if '<' is not at the beginning - case 2", function () {
+    let result = processor("9701::4872<97403495720912");
+    expect(result.rawData).toBe(-1);
+  });
+
+  test("returns -1 for rawData if missing < entirely - case 3", function () {
+    let result = processor("9701::487297403495720912");
+    expect(result.rawData).toBe(-1);
+  });
+
+  test("returns -1 for rawData if multiple '<' present but not at beginning - case 4", function () {
+    let result = processor("9701::<487297403495<720912>");
+    expect(result.rawData).toBe(-1);
+  });
+});
