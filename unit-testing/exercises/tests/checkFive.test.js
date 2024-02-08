@@ -1,4 +1,4 @@
-const checkFive = require("./checkFive");
+const checkFive = require("../checkFive");
 
 describe("checkFive Function", () => {
   test("returns 'num is less than 5.' when num < 5", () => {
