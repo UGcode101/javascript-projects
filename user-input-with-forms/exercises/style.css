@@ -1,1 +1,7 @@
-/*/ Code Your Solution Below /*/
+.blue-text-green-background {
+    color: blue; 
+    background-color: green;
+    font-family: 'Comic Sans MS', cursive, sans-serif; 
+}
+
+

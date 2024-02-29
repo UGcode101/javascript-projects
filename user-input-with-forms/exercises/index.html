@@ -1,18 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Rocket Simulation</title>
-    <style>
-      label { display: block; margin-bottom: 7px;}
-    </style>
-  </head>
-  <body>
-    <!-- TODO: add form here -->
-    
+<head>
+  <meta charset="utf-8">
+  <title>Rocket Simulation</title>
+  <style>
+    label { display: block; margin-bottom: 7px; }
+    .blue-text-green-background {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: blue;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="blue-text-green-background">
+    <form id="rocketForm" action="https://handlers.education.launchcode.org/request-parrot" method="POST">
+      <label>Test Name: <input type="text" name="testName" /></label>
+      <label>Test Date: <input type="date" name="testDate" /></label>
+      <label>Rocket Type: 
+        <select name="rocketType">
+          <option value="Brant">Brant</option>
+          <option value="Lynx">Lynx</option>
+          <option value="Orion">Orion</option>
+          <option value="Terrier">Terrier</option>
+        </select>
+      </label>
+      <label>Number of Rocket Boosters: <input type="number" name="boosterCount" min="0" max="9" /></label>
+      <label>Wind Rating:
+        <input type="radio" name="windRating" value="0"> No Wind
+        <input type="radio" name="windRating" value="10" checked> Mild
+        <input type="radio" name="windRating" value="20"> Strong
+      </label>
+      <label>Use production grade servers: <input type="checkbox" name="productionServers" /></label>
+      <button type="submit">Run Simulation</button>
+    </form>
+  </div>
+  <script>
+    document.getElementById('rocketForm').addEventListener('submit', function(event) {
+      const testName = document.querySelector('[name="testName"]').value.trim();
+      const testDate = document.querySelector('[name="testDate"]').value.trim();
+      const rocketType = document.querySelector('[name="rocketType"]').value.trim();
+      const boosterCount = document.querySelector('[name="boosterCount"]').value.trim();
+      const windRatingRadios = document.querySelectorAll('[name="windRating"]');
+      
+      let windRating = '';
+      for (const radio of windRatingRadios) {
+        if (radio.checked) {
+          windRating = radio.value;
+          break;
+        }
+      }
 
-    <p>WARNING: This ONLY works in <b>replit</b> if this "result" page is opened in its own window. Click the icon that shows a box with an arrow coming out of it.
-    </p>
-  </body>
-  
+      const productionServersChecked = document.querySelector('[name="productionServers"]').checked;
+
+      if (!testName || !testDate || !rocketType || !boosterCount || !windRating || !productionServersChecked) {
+        alert('Please fill out all fields before submitting.');
+        event.preventDefault();
+      }
+    });
+  </script>
+</body>
 </html>
